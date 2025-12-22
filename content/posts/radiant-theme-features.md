@@ -37,7 +37,7 @@ This is a card component with a title, suitable for displaying important informa
 
 ### Badge
 
-You can insert inline :badge{type="success"} status tags : or :badge{type="warning"} warning tags :.
+You can insert inline :badge{type="success"}[status tags] or :badge{type="warning"}[warning tags].
 
 ### Alert
 
