@@ -25,7 +25,7 @@ Radiant is built on top of Nuxt 3 and Nuxt Content. It's fast, SEO-friendly, and
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/radiant.git
+git clone https://github.com/yuxbao/radiant-nuxt.git
 
 # Install dependencies
 pnpm install

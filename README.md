@@ -25,8 +25,8 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/radiant.git
-   cd radiant
+   git clone https://github.com/yuxbao/radiant-nuxt.git
+   cd radiant-nuxt
    ```
 
 2. Install dependencies:

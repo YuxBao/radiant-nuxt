@@ -25,8 +25,8 @@
 1. 克隆仓库：
 
    ```bash
-   git clone https://github.com/your-username/radiant.git
-   cd radiant
+   git clone https://github.com/yuxbao/radiant-nuxt.git
+   cd radiant-nuxt
    ```
 
 2. 安装依赖：
