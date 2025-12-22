@@ -1,12 +1,25 @@
 <template>
     <div class="page-container">
         <ContentRenderer v-if="home" :value="home" />
-        <div v-else>Home not found</div>
+        <div v-else class="error-container">
+            <h1>Home not found</h1>
+            <p>Could not find the homepage content.</p>
+            <details>
+                <summary>Debug Info</summary>
+                <p>Looking for path: /home</p>
+                <p>Available paths in 'content' collection:</p>
+                <ul>
+                    <li v-for="p in allPaths" :key="p.path">{{ p.path }}</li>
+                </ul>
+            </details>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 const { data: home } = await useAsyncData('home', () => queryCollection('content').where('path', '=', '/home').first())
+
+const { data: allPaths } = await useAsyncData('debug-paths', () => queryCollection('content').select('path').all())
 
 useSeoMeta({
     title: home.value?.title,
@@ -15,6 +28,21 @@ useSeoMeta({
 </script>
 
 <style scoped>
+.error-container {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #ef4444;
+}
+
+details {
+    margin-top: 2rem;
+    text-align: left;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: #334155;
+}
+
 .page-container {
     max-width: 900px;
     margin: 0 auto;

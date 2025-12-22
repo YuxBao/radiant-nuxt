@@ -1,8 +1,12 @@
-# Radiant
+# Radiant [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yuxbao/radiant-nuxt)
+
+<img src="https://img.shields.io/github/v/release/yuxbao/radiant-nuxt?style=hero&color=%23FFFFFF&label=version&labelColor=%2383C092" alt="Version"/>
 
 [中文文档](./README.zh-CN.md)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YuxBao/radiant-nuxt)
+<div style="text-align: center;">
+   <img src="./logo.png" alt="Radiant Theme Logo" style="width: 200px;"/>
+</div>
 
 **Radiant** is a modern, minimal static blog theme built with **Nuxt 3** and **Nuxt Content**. It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
 
@@ -23,6 +27,8 @@
 - pnpm (recommended)
 
 ### Installation
+
+Click on "deploy" button above to deploy to Vercel instantly, or follow these steps to run locally:
 
 1. Clone the repository:
 

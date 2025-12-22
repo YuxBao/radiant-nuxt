@@ -1,8 +1,12 @@
-# Radiant (璀光)
+# Radiant (璀光) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yuxbao/radiant-nuxt)
+
+<img src="https://img.shields.io/github/v/release/yuxbao/radiant-nuxt?style=hero&color=%23FFFFFF&label=version&labelColor=%2383C092" alt="Version"/>
 
 [English Documentation](./README.md)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YuxBao/radiant-nuxt)
+<div style="text-align: center;">
+   <img src="./logo.png" alt="Radiant Theme Logo" style="width: 200px;"/>
+</div>
 
 **Radiant (璀光)** 是一个基于 **Nuxt 3** 和 **Nuxt Content** 构建的现代极简静态博客主题。它采用了“冷淡风”美学，融合了玻璃拟态（Glassmorphism）效果，专注于排版和阅读体验。
 
@@ -16,6 +20,8 @@
 - **SEO 友好**：优化的 Meta 标签和结构。
 
 ## 🚀 快速开始
+
+点击上方“Deploy”按钮，一键部署到 Vercel，或按照以下步骤在本地运行：
 
 ### 前置要求
 
