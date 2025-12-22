@@ -2,6 +2,8 @@
 
 [English Documentation](./README.md)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YuxBao/radiant-nuxt)
+
 **Radiant (璀光)** 是一个基于 **Nuxt 3** 和 **Nuxt Content** 构建的现代极简静态博客主题。它采用了“冷淡风”美学，融合了玻璃拟态（Glassmorphism）效果，专注于排版和阅读体验。
 
 ## ✨ 特性

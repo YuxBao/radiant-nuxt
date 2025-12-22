@@ -2,6 +2,8 @@
 
 [中文文档](./README.zh-CN.md)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YuxBao/radiant-nuxt)
+
 **Radiant** is a modern, minimal static blog theme built with **Nuxt 3** and **Nuxt Content**. It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
 
 ## ✨ Features
