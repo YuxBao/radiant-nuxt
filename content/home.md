@@ -6,7 +6,7 @@ description: "A minimal, glassmorphism-inspired Nuxt blog theme."
 # :radiant-text[Radiant 璀光]
 
 ::card{title="Welcome"}
-**Radiant (璀光)** is a modern, minimal static blog theme built with **Nuxt 3** and **Nuxt Content**.
+**Radiant (璀光)** is a modern, minimal static blog theme built with **Nuxt 4** and **Nuxt Content**.
 It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
 ::
 
@@ -26,7 +26,7 @@ It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typo
 
 ### ⚡️ Tech Stack
 
-- **Nuxt 3**: The latest Vue framework.
+- **Nuxt 4**: The latest Vue framework.
 - **Nuxt Content**: Markdown-based content management.
 - **TypeScript**: Fully typed codebase.
 

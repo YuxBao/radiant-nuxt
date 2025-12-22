@@ -1,6 +1,6 @@
 ---
 title: "Welcome to Radiant"
-description: "Introducing a new minimal blog theme for Nuxt 3."
+description: "Introducing a new minimal blog theme for Nuxt 4."
 date: "2024-03-20"
 author: "Yux Bao"
 tags: ["Theme", "Nuxt", "Design"]
@@ -21,7 +21,7 @@ In a world of cluttered interfaces, Radiant aims to provide a **distraction-free
 
 ## Getting Started
 
-Radiant is built on top of Nuxt 3 and Nuxt Content. It's fast, SEO-friendly, and easy to customize.
+Radiant is built on top of Nuxt 4 and Nuxt Content. It's fast, SEO-friendly, and easy to customize.
 
 ```bash
 # Clone the repository

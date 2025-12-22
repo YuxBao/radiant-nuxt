@@ -2,7 +2,7 @@
     <footer class="app-footer">
         <div class="footer-container">
             <p class="footer-text">
-                © {{ currentYear }} Radiant Theme. Built with Nuxt 3
+                © {{ currentYear }} Radiant Theme. Built with Nuxt 4
             </p>
         </div>
     </footer>

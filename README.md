@@ -8,7 +8,7 @@
    <img src="./logo.png" alt="Radiant Theme Logo" style="width: 200px;"/>
 </div>
 
-**Radiant** is a modern, minimal static blog theme built with **Nuxt 3** and **Nuxt Content**. It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
+**Radiant** is a modern, minimal static blog theme built with **Nuxt 4** and **Nuxt Content**. It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
 
 ## ✨ Features
 

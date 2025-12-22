@@ -1,12 +1,12 @@
 ---
-title: "Nuxt 3 入门指南"
-description: "学习如何使用 Nuxt 3 构建现代化的 Web 应用程序"
+title: "Nuxt 4 入门指南"
+description: "学习如何使用 Nuxt 4 构建现代化的 Web 应用程序"
 date: "2024-03-15"
 author: "Yux Bao"
 tags: ["Nuxt", "Vue", "Web Development"]
 ---
 
-Nuxt 3 是一个基于 Vue 3 的强大框架，它提供了许多开箱即用的功能，让你可以快速构建高性能的 Web 应用。
+Nuxt 4 是一个基于 Vue 3 的强大框架，它提供了许多开箱即用的功能，让你可以快速构建高性能的 Web 应用。
 
 ## 什么是 Nuxt？
 
@@ -21,7 +21,7 @@ Nuxt 是一个免费且开源的框架，它为使用 Vue.js 创建 Web 应用�
 
 ## 快速开始
 
-安装 Nuxt 3 非常简单：
+安装 Nuxt 4 非常简单：
 
 ```bash
 npx nuxi@latest init my-app
@@ -43,4 +43,4 @@ my-app/
 
 ## 总结
 
-Nuxt 3 提供了一个现代化的开发体验，让你可以专注于构建应用功能，而不用担心配置问题。
+Nuxt 4 提供了一个现代化的开发体验，让你可以专注于构建应用功能，而不用担心配置问题。
