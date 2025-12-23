@@ -14,6 +14,7 @@ description: "关于璀光主题"
 - ✨ **Nuxt Content v3** 驱动
 - 🎨 **Tailwind-like** 自定义 CSS 变量
 - 📱 **完全响应式** 设计
+- 🌑 **暗色模式** 支持
 
 ::alert{type="info"}
 欢迎关注作者 [YuxBao](https://github.com/yuxbao)，提供[赞助支持](https://www.yux-bao.site/sponsor#%E4%BB%98%E6%AC%BE%E6%96%B9%E5%BC%8F)以鼓励主题的继续创作，谢谢！
@@ -21,5 +22,4 @@ description: "关于璀光主题"
 
 ### Coming Soon...
 
-- 🌑 **暗色模式** 支持
 - 🛠️ **更多自定义选项**
