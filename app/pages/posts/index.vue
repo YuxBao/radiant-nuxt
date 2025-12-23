@@ -1,5 +1,5 @@
 <template>
-    <div class="posts-page">
+    <div class="posts-page" :class="{ dark: colorMode === 'dark' }">
         <div class="posts-header">
             <h1>文章列表</h1>
             <p class="subtitle">探索技术分享与经验总结</p>
@@ -13,7 +13,7 @@
                             <time class="post-date">{{ formatDate((post as any).date) }}</time>
                             <div v-if="(post as any).tags && (post as any).tags.length > 0" class="post-tags">
                                 <span v-for="tag in (post as any).tags.slice(0, 1)" :key="tag" class="tag">#{{ tag
-                                    }}</span>
+                                }}</span>
                                 <span v-if="(post as any).tags.length > 1" class="tag-more">+{{ (post as
                                     any).tags.length - 1 }}</span>
                             </div>
@@ -47,6 +47,7 @@ interface Post {
     tags?: string[]
 }
 
+const { colorMode } = useTheme()
 const { data: posts } = await useAsyncData('posts', () =>
     queryCollection('posts').all()
 )
@@ -92,12 +93,20 @@ useSeoMeta({
     letter-spacing: -0.02em;
 }
 
+.posts-page.dark .posts-header h1 {
+    color: #e2e8f0;
+}
+
 .subtitle {
     font-size: 1.1rem;
     color: #94a3b8;
     margin: 0;
     font-weight: 300;
     letter-spacing: 0.02em;
+}
+
+.posts-page.dark .subtitle {
+    color: #94a3b8;
 }
 
 .posts-grid {
@@ -118,11 +127,21 @@ useSeoMeta({
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
 }
 
+.posts-page.dark .post-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
 .post-card:hover {
     transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
     border-color: rgba(255, 255, 255, 0.8);
+}
+
+.posts-page.dark .post-card:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(51, 65, 85, 0.8);
 }
 
 .post-link {
@@ -180,6 +199,12 @@ useSeoMeta({
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+.posts-page.dark .tag {
+    background: rgba(51, 65, 85, 0.6);
+    color: #94a3b8;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
 .tag-more {
     font-size: 0.7rem;
     padding: 0.25rem 0.6rem;
@@ -192,6 +217,11 @@ useSeoMeta({
     align-items: center;
     justify-content: center;
     min-width: 24px;
+}
+
+.posts-page.dark .tag-more {
+    background: rgba(51, 65, 85, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.5);
 }
 
 .post-title {
@@ -211,6 +241,10 @@ useSeoMeta({
     min-height: calc(1.5rem * 1.3 * 2);
 }
 
+.posts-page.dark .post-title {
+    color: #e2e8f0;
+}
+
 .post-description {
     font-size: 0.95rem;
     color: #64748b;
@@ -226,12 +260,20 @@ useSeoMeta({
     text-overflow: ellipsis;
 }
 
+.posts-page.dark .post-description {
+    color: #94a3b8;
+}
+
 .post-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.posts-page.dark .post-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .post-author {
@@ -248,6 +290,14 @@ useSeoMeta({
 
 .post-card:hover .read-more {
     color: #334155;
+}
+
+.posts-page.dark .read-more {
+    color: #94a3b8;
+}
+
+.posts-page.dark .post-card:hover .read-more {
+    color: #e2e8f0;
 }
 
 .no-posts {

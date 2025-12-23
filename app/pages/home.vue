@@ -1,5 +1,5 @@
 <template>
-    <div class="page-container">
+    <div class="page-container" :class="{ dark: colorMode === 'dark' }">
         <ContentRenderer v-if="home" :value="home" />
         <div v-else class="error-container">
             <h1>Home not found</h1>
@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+const { colorMode } = useTheme()
 const { data: home } = await useAsyncData('home', () => queryCollection('content').where('path', '=', '/home').first())
 
 const { data: allPaths } = await useAsyncData('debug-paths', () => queryCollection('content').select('path').all())
@@ -43,6 +44,11 @@ details {
     color: #334155;
 }
 
+.page-container.dark details {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
 .page-container {
     max-width: 900px;
     margin: 0 auto;
@@ -58,12 +64,20 @@ details {
     text-align: center;
 }
 
+.page-container.dark :deep(h1) {
+    color: #e2e8f0;
+}
+
 :deep(p) {
     font-size: 1.1rem;
     color: #64748b;
     line-height: 1.8;
     font-weight: 300;
     margin-bottom: 1.5rem;
+}
+
+.page-container.dark :deep(p) {
+    color: #94a3b8;
 }
 
 :deep(h2) {
@@ -74,11 +88,19 @@ details {
     letter-spacing: -0.02em;
 }
 
+.page-container.dark :deep(h2) {
+    color: #e2e8f0;
+}
+
 :deep(h3) {
     font-size: 1.5rem;
     font-weight: 400;
     color: #475569;
     margin: 2rem 0 1rem;
+}
+
+.page-container.dark :deep(h3) {
+    color: #cbd5e1;
 }
 
 :deep(a) {
@@ -105,6 +127,11 @@ details {
     color: #64748b;
 }
 
+.page-container.dark :deep(ul),
+.page-container.dark :deep(ol) {
+    color: #94a3b8;
+}
+
 :deep(li) {
     margin: 0.5rem 0;
     line-height: 1.7;
@@ -113,5 +140,9 @@ details {
 :deep(strong) {
     font-weight: 600;
     color: #334155;
+}
+
+.page-container.dark :deep(strong) {
+    color: #e2e8f0;
 }
 </style>

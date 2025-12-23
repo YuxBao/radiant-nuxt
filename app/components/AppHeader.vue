@@ -1,5 +1,5 @@
 <template>
-    <header class="app-header">
+    <header class="app-header" :class="{ dark: theme === 'dark' }">
         <nav class="nav-container">
             <!-- Logo -->
             <div class="logo">
@@ -19,6 +19,27 @@
                 <NuxtLink to="/about" class="nav-link" active-class="active">
                     About
                 </NuxtLink>
+                <button class="theme-toggle" @click="toggleTheme"
+                    :aria-label="theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'">
+                    <svg v-if="theme === 'light'" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -39,13 +60,42 @@
                 <NuxtLink to="/about" class="nav-link" active-class="active" @click="closeMobileMenu">
                     关于
                 </NuxtLink>
+                <button class="theme-toggle" @click="toggleTheme"
+                    :aria-label="theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'">
+                    <svg v-if="theme === 'light'" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </div>
         </transition>
     </header>
 </template>
 
 <script setup>
+const props = defineProps({
+    theme: {
+        type: String,
+        default: 'light'
+    }
+})
+
 const mobileMenuOpen = ref(false)
+const { toggleTheme } = useTheme()
 
 const toggleMobileMenu = () => {
     mobileMenuOpen.value = !mobileMenuOpen.value
@@ -72,6 +122,13 @@ watch(() => route.path, () => {
     z-index: 1000;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    transition: all 0.3s ease;
+}
+
+/* Dark mode header */
+.app-header.dark {
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.3);
 }
 
 .nav-container {
@@ -103,8 +160,16 @@ watch(() => route.path, () => {
     transition: all 0.2s ease;
 }
 
+.app-header.dark .logo-text {
+    color: #e2e8f0;
+}
+
 .logo-link:hover .logo-text {
     color: #64748b;
+}
+
+.app-header.dark .logo-link:hover .logo-text {
+    color: #cbd5e1;
 }
 
 /* Desktop Navigation */
@@ -125,15 +190,29 @@ watch(() => route.path, () => {
     position: relative;
 }
 
+.app-header.dark .nav-link {
+    color: #94a3b8;
+}
+
 .nav-link:hover {
     color: #334155;
     background: rgba(255, 255, 255, 0.5);
+}
+
+.app-header.dark .nav-link:hover {
+    color: #e2e8f0;
+    background: rgba(51, 65, 85, 0.5);
 }
 
 .nav-link.active {
     color: #0f172a;
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.app-header.dark .nav-link.active {
+    color: #f1f5f9;
+    background: rgba(51, 65, 85, 0.8);
 }
 
 .nav-link:hover {
@@ -145,6 +224,41 @@ watch(() => route.path, () => {
     color: #111827;
     background: #f3f4f6;
     font-weight: 500;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #64748b;
+}
+
+.app-header.dark .theme-toggle {
+    background: rgba(51, 65, 85, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    color: #94a3b8;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #334155;
+    transform: scale(1.05);
+}
+
+.app-header.dark .theme-toggle:hover {
+    background: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
+}
+
+.theme-toggle svg {
+    display: block;
 }
 
 /* Mobile Menu Toggle */
@@ -166,6 +280,10 @@ watch(() => route.path, () => {
     transition: all 0.2s ease;
 }
 
+.app-header.dark .hamburger {
+    background: #e2e8f0;
+}
+
 .hamburger::before,
 .hamburger::after {
     content: '';
@@ -174,6 +292,11 @@ watch(() => route.path, () => {
     height: 2px;
     background: #111827;
     transition: all 0.2s ease;
+}
+
+.app-header.dark .hamburger::before,
+.app-header.dark .hamburger::after {
+    background: #e2e8f0;
 }
 
 .hamburger::before {
@@ -206,6 +329,11 @@ watch(() => route.path, () => {
     padding: 1rem;
     gap: 0.5rem;
     border-bottom: 1px solid #e5e7eb;
+}
+
+.app-header.dark .mobile-nav {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
 }
 
 .mobile-nav .nav-link {

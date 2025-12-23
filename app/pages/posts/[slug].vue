@@ -1,5 +1,5 @@
 <template>
-    <div class="post-detail">
+    <div class="post-detail" :class="{ dark: colorMode === 'dark' }">
         <div v-if="post" class="post-layout">
             <article class="post-article">
                 <header class="post-header">
@@ -68,6 +68,7 @@ interface Post {
     tags?: string[]
 }
 
+const { colorMode } = useTheme()
 const route = useRoute()
 const slug = route.params.slug as string
 
@@ -121,6 +122,11 @@ useSeoMeta({
     min-width: 0;
 }
 
+.post-detail.dark .post-article {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
 .toc-sidebar {
     position: sticky;
     top: 6rem;
@@ -135,12 +141,21 @@ useSeoMeta({
     -webkit-backdrop-filter: blur(12px);
 }
 
+.post-detail.dark .toc-wrapper {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
 .toc-title {
     font-size: 0.95rem;
     font-weight: 600;
     margin: 0 0 1rem 0;
     color: #334155;
     letter-spacing: -0.01em;
+}
+
+.post-detail.dark .toc-title {
+    color: #e2e8f0;
 }
 
 .toc-nav ul {
@@ -164,9 +179,18 @@ useSeoMeta({
     padding-left: 0.75rem;
 }
 
+.post-detail.dark .toc-nav a {
+    color: #94a3b8;
+}
+
 .toc-nav a:hover {
     color: #334155;
     border-left-color: #cbd5e1;
+}
+
+.post-detail.dark .toc-nav a:hover {
+    color: #e2e8f0;
+    border-left-color: #475569;
 }
 
 .toc-sub {
@@ -182,6 +206,10 @@ useSeoMeta({
     margin-bottom: 3rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-detail.dark .post-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .post-date {
@@ -201,12 +229,20 @@ useSeoMeta({
     letter-spacing: -0.02em;
 }
 
+.post-detail.dark .post-title {
+    color: #e2e8f0;
+}
+
 .post-description {
     font-size: 1.15rem;
     line-height: 1.6;
     color: #64748b;
     margin: 0 0 2rem 0;
     font-weight: 300;
+}
+
+.post-detail.dark .post-description {
+    color: #94a3b8;
 }
 
 .post-meta-footer {
@@ -218,6 +254,10 @@ useSeoMeta({
     border-top: 1px dashed rgba(0, 0, 0, 0.05);
     gap: 2rem;
     /* Ensure minimum space between author and tags */
+}
+
+.post-detail.dark .post-meta-footer {
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
 }
 
 .post-author {
@@ -259,9 +299,19 @@ useSeoMeta({
     align-items: center;
 }
 
+.post-detail.dark .tag {
+    background: rgba(51, 65, 85, 0.5);
+    color: #94a3b8;
+}
+
 .tag:hover {
     background: rgba(241, 245, 249, 0.8);
     color: #334155;
+}
+
+.post-detail.dark .tag:hover {
+    background: rgba(51, 65, 85, 0.8);
+    color: #e2e8f0;
 }
 
 .post-content {
@@ -269,6 +319,10 @@ useSeoMeta({
     line-height: 1.9;
     color: #475569;
     font-weight: 300;
+}
+
+.post-detail.dark .post-content {
+    color: #cbd5e1;
 }
 
 .post-content :deep(h1) {
@@ -279,6 +333,10 @@ useSeoMeta({
     letter-spacing: -0.02em;
 }
 
+.post-detail.dark .post-content :deep(h1) {
+    color: #e2e8f0;
+}
+
 .post-content :deep(h2) {
     font-size: 1.8rem;
     font-weight: 300;
@@ -286,6 +344,10 @@ useSeoMeta({
     color: #334155;
     letter-spacing: -0.01em;
     padding-bottom: 0.5rem;
+}
+
+.post-detail.dark .post-content :deep(h2) {
+    color: #e2e8f0;
 }
 
 .post-content :deep(h1 a),
@@ -307,6 +369,10 @@ useSeoMeta({
     color: #475569;
 }
 
+.post-detail.dark .post-content :deep(h3) {
+    color: #cbd5e1;
+}
+
 .post-content :deep(p) {
     margin: 1.5rem 0;
 }
@@ -316,6 +382,11 @@ useSeoMeta({
     margin: 1.5rem 0;
     padding-left: 1.5rem;
     color: #475569;
+}
+
+.post-detail.dark .post-content :deep(ul),
+.post-detail.dark .post-content :deep(ol) {
+    color: #94a3b8;
 }
 
 .post-content :deep(li) {
@@ -337,16 +408,50 @@ useSeoMeta({
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+.post-detail.dark .post-content :deep(code) {
+    background: rgba(51, 65, 85, 0.6);
+    color: #cbd5e1;
+    border: 1px solid rgba(71, 85, 105, 0.5);
+}
+
 .post-content :deep(pre) {
     background: rgba(255, 255, 255, 0.5) !important;
     padding: 1.5rem;
     border-radius: 16px;
     overflow-x: auto;
     margin: 2rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    border: none;
+    box-shadow: none;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.post-detail.dark .post-content :deep(pre) {
+    background: rgba(30, 41, 59, 0.5) !important;
+    border: none;
+}
+
+/* Scrollbar styles for code blocks */
+.post-content :deep(pre)::-webkit-scrollbar {
+    height: 8px;
+    background-color: transparent;
+}
+
+.post-content :deep(pre)::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.4);
+    border-radius: 4px;
+}
+
+.post-content :deep(pre)::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(148, 163, 184, 0.6);
+}
+
+.post-detail.dark .post-content :deep(pre)::-webkit-scrollbar-thumb {
+    background-color: rgba(71, 85, 105, 0.6);
+}
+
+.post-detail.dark .post-content :deep(pre)::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 116, 139, 0.8);
 }
 
 .post-content :deep(pre code) {
@@ -356,6 +461,12 @@ useSeoMeta({
     border: none;
     font-size: 0.9em;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    text-decoration: none !important;
+}
+
+.post-content :deep(pre code span) {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .post-content :deep(blockquote) {
@@ -369,10 +480,20 @@ useSeoMeta({
     border-radius: 0 8px 8px 0;
 }
 
+.post-detail.dark .post-content :deep(blockquote) {
+    border-left: 3px solid rgba(71, 85, 105, 0.4);
+    color: #94a3b8;
+    background: rgba(30, 41, 59, 0.3);
+}
+
 .post-content :deep(hr) {
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     margin: 3rem 0;
+}
+
+.post-detail.dark .post-content :deep(hr) {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .post-content :deep(img) {
@@ -388,6 +509,10 @@ useSeoMeta({
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+.post-detail.dark .post-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .back-link {
     display: inline-flex;
     align-items: center;
@@ -397,8 +522,16 @@ useSeoMeta({
     transition: color 0.2s;
 }
 
+.post-detail.dark .back-link {
+    color: #94a3b8;
+}
+
 .back-link:hover {
     color: #334155;
+}
+
+.post-detail.dark .back-link:hover {
+    color: #e2e8f0;
 }
 
 .not-found {

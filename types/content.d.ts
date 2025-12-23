@@ -4,6 +4,11 @@ declare module "@nuxt/content" {
     author?: string;
     tags?: string[];
   }
+
+  interface ContentCollectionItem {
+    title?: string;
+    description?: string;
+  }
 }
 
 export {};

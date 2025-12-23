@@ -1,10 +1,11 @@
 <template>
-    <span class="badge" :class="[type]">
+    <span class="badge" :class="[type, { dark: colorMode === 'dark' }]">
         <slot />
     </span>
 </template>
 
 <script setup lang="ts">
+const { colorMode } = useTheme()
 defineProps({
     type: {
         type: String,
@@ -35,10 +36,22 @@ defineProps({
     border-color: rgba(203, 213, 225, 0.5);
 }
 
+.badge.dark.default {
+    background: rgba(51, 65, 85, 0.8);
+    color: #94a3b8;
+    border-color: rgba(71, 85, 105, 0.5);
+}
+
 .info {
     background: rgba(224, 242, 254, 0.8);
     color: #0369a1;
     border-color: rgba(186, 230, 253, 0.5);
+}
+
+.badge.dark.info {
+    background: rgba(14, 165, 233, 0.2);
+    color: #7dd3fc;
+    border-color: rgba(14, 165, 233, 0.3);
 }
 
 .success {
@@ -47,15 +60,33 @@ defineProps({
     border-color: rgba(187, 247, 208, 0.5);
 }
 
+.badge.dark.success {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
 .warning {
     background: rgba(254, 249, 195, 0.8);
     color: #a16207;
     border-color: rgba(253, 230, 138, 0.5);
 }
 
+.badge.dark.warning {
+    background: rgba(234, 179, 8, 0.2);
+    color: #fde047;
+    border-color: rgba(234, 179, 8, 0.3);
+}
+
 .danger {
     background: rgba(254, 226, 226, 0.8);
     color: #b91c1c;
     border-color: rgba(254, 202, 202, 0.5);
+}
+
+.badge.dark.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.3);
 }
 </style>

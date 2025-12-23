@@ -1,10 +1,11 @@
 <template>
-    <div class="alert" :class="[type]">
+    <div class="alert" :class="[type, { dark: colorMode === 'dark' }]">
         <slot />
     </div>
 </template>
 
 <script setup lang="ts">
+const { colorMode } = useTheme()
 defineProps({
     type: {
         type: String,
@@ -35,10 +36,22 @@ defineProps({
     color: #0369a1;
 }
 
+.alert.dark.info {
+    background-color: rgba(14, 165, 233, 0.2);
+    border-color: rgba(14, 165, 233, 0.3);
+    color: #7dd3fc;
+}
+
 .success {
     background-color: rgba(220, 252, 231, 0.5);
     border-color: rgba(187, 247, 208, 0.5);
     color: #15803d;
+}
+
+.alert.dark.success {
+    background-color: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #86efac;
 }
 
 .warning {
@@ -47,9 +60,21 @@ defineProps({
     color: #854d0e;
 }
 
+.alert.dark.warning {
+    background-color: rgba(234, 179, 8, 0.2);
+    border-color: rgba(234, 179, 8, 0.3);
+    color: #fde047;
+}
+
 .danger {
     background-color: rgba(254, 226, 226, 0.5);
     border-color: rgba(252, 165, 165, 0.5);
     color: #991b1b;
+}
+
+.alert.dark.danger {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
 }
 </style>

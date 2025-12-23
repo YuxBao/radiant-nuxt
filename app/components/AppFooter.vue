@@ -1,5 +1,5 @@
 <template>
-    <footer class="app-footer">
+    <footer class="app-footer" :class="{ dark: theme === 'dark' }">
         <div class="footer-container">
             <p class="footer-text">
                 © {{ currentYear }} Radiant Theme. Built with Nuxt 4
@@ -9,6 +9,12 @@
 </template>
 
 <script setup>
+const props = defineProps({
+    theme: {
+        type: String,
+        default: 'light'
+    }
+})
 const currentYear = new Date().getFullYear()
 </script>
 
@@ -21,6 +27,13 @@ const currentYear = new Date().getFullYear()
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.app-footer.dark {
+    background: rgba(15, 23, 42, 0.4);
+    color: #64748b;
+    border-top: 1px solid rgba(51, 65, 85, 0.3);
 }
 
 .footer-container {

@@ -1,10 +1,12 @@
 <template>
-    <div class="grid" :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }">
+    <div class="grid" :class="{ dark: colorMode === 'dark' }"
+        :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }">
         <slot />
     </div>
 </template>
 
 <script setup lang="ts">
+const { colorMode } = useTheme()
 defineProps({
     cols: {
         type: [Number, String],
@@ -36,6 +38,13 @@ defineProps({
     color: #334155;
 }
 
+.grid.dark :deep(h1),
+.grid.dark :deep(h2),
+.grid.dark :deep(h3),
+.grid.dark :deep(h4) {
+    color: #e2e8f0;
+}
+
 :deep(p) {
     margin-bottom: 1rem;
     line-height: 1.6;
@@ -62,5 +71,9 @@ defineProps({
 :deep(strong) {
     font-weight: 600;
     color: #1e293b;
+}
+
+.grid.dark :deep(strong) {
+    color: #f1f5f9;
 }
 </style>
