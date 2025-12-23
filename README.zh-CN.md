@@ -4,17 +4,17 @@
 
 [English Documentation](./README.md)
 
-<div style="text-align: center;">
+<p align="center">
    <img src="./logo.png" alt="Radiant Theme Logo" style="width: 200px;"/>
-</div>
+</p>
 
 **Radiant (璀光)** 是一个基于 **Nuxt 4** 和 **Nuxt Content** 构建的现代极简静态博客主题。它采用了“冷淡风”美学，融合了玻璃拟态（Glassmorphism）效果，专注于排版和阅读体验。
 
 ## ✨ 特性
 
-<div style="text-align: center;">
-   <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
-</div>
+<p align="center">
+  <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
+</p>
 
 - **玻璃拟态设计**：卡片和导航栏采用磨砂玻璃效果。
 - **Nuxt Content v3**：强大的基于文件的内容管理系统。

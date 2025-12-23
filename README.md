@@ -4,17 +4,17 @@
 
 [中文文档](./README.zh-CN.md)
 
-<div style="text-align: center;">
+<p align="center">
    <img src="./logo.png" alt="Radiant Theme Logo" style="width: 200px;"/>
-</div>
+</p>
 
 **Radiant** is a modern, minimal static blog theme built with **Nuxt 4** and **Nuxt Content**. It features a clean "cold" aesthetic, glassmorphism effects, and a focus on typography.
 
 ## ✨ Features
 
-<div style="text-align: center;">
-   <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
-</div>
+<p align="center">
+  <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
+</p>
 
 - **Glassmorphism Design**: Frosted glass effects on cards and navigation.
 - **Nuxt Content v3**: Powerful file-based CMS.
