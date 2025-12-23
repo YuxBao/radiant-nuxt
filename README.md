@@ -12,6 +12,10 @@
 
 ## ✨ Features
 
+<div style="text-align: center;">
+   <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
+</div>
+
 - **Glassmorphism Design**: Frosted glass effects on cards and navigation.
 - **Nuxt Content v3**: Powerful file-based CMS.
 - **TypeScript**: Fully typed codebase.

@@ -12,6 +12,10 @@
 
 ## ✨ 特性
 
+<div style="text-align: center;">
+   <img src="./public/screenshot.png" alt="Radiant Theme Screenshot" style="width: 80%; border: 1px solid #eaeaea; border-radius: 8px;"/>
+</div>
+
 - **玻璃拟态设计**：卡片和导航栏采用磨砂玻璃效果。
 - **Nuxt Content v3**：强大的基于文件的内容管理系统。
 - **TypeScript**：全类型支持。
